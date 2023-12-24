@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Ruang Tunggu - Menunggu Ruang Dengan Nyaman</title>
+    <title> @yield('ruangApp') - Ruang Tunggu</title>
     <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" />
     <style>
         @import url('https://rsms.me/inter/inter.css');
@@ -25,12 +25,16 @@
 
 <body>
     <div class="page">
-        @include('livewire.aplikasi.template.inc.header')
+        @include('livewire.aplikasi.template.inc.cms.header')
         <div class="page-wrapper">
-            {{ $slot }}
 
+            <div class="page-body">
+                <div class="container-xl">
+                    {{ $slot }}
+                </div>
+            </div>
         </div>
-        @include('livewire.aplikasi.template.inc.footer')
+        @include('livewire.aplikasi.template.inc.cms.footer')
     </div>
 
 

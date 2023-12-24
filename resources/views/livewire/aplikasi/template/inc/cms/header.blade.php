@@ -8,9 +8,7 @@
               </button>
               <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                   <a href="{{ route('home') }}">
-                      Ruang Tunggu
-                      {{-- <img src="" width="110" height="32" alt="Tabler"
-                          class="navbar-brand-image"> --}}
+                      Ruang Tunggu (CMS)
                   </a>
               </h1>
           </div>
@@ -20,25 +18,46 @@
               <div class="navbar">
                   <div class="container-xl">
                       <ul class="navbar-nav">
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('home') }}">
-                                  <span
-                                      class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                          height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                          fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                          <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-                                          <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                                          <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                                      </svg>
+                          <li class="nav-item {{ request()->routeIs('dashboard') ? "active": "" }}">
+                              <a class="nav-link " href="{{ route('dashboard') }}">
+                                  <i data-lucide="layout-dashboard" width="15" height="15" style="margin-right: 2px;"></i>
                                   </span>
                                   <span class="nav-link-title">
-                                      Home
+                                      Dasbor
                                   </span>
                               </a>
                           </li>
-                          <li class="nav-item dropdown">
+                          <li class="nav-item {{ request()->routeIs('ruang.index') ? "active": "" }}"" >
+                              <a class="nav-link" href="{{ route('ruang.index') }}">
+                                  <i data-lucide="folder-root" width="15" height="15" style="margin-right: 2px;"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Ruang
+                                  </span>
+                              </a>
+                          </li>
+                          <li class="nav-item {{ request()->routeIs('subruang.index', 'subruang.edit', 'subruang.create') ? "active": "" }}">
+                              <a class="nav-link" href="{{ route('subruang.index') }}">
+                                  <i data-lucide="folder-dot" width="15" height="15" style="margin-right: 2px;"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Sub Ruang
+                                  </span>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('dashboard') }}">
+                                  <i data-lucide="cog" width="15" height="15" style="margin-right: 2px;"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Pengaturan
+                                  </span>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              @livewire('aplikasi.template.pages.auth.logout')
+                          </li>
+                          {{-- <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
                                   data-bs-auto-close="outside" role="button" aria-expanded="false">
                                   <span
@@ -60,8 +79,7 @@
                                   </span>
                               </a>
                               <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="https://tabler.io/docs" target="_blank"
-                                      rel="noopener">
+                                  <a class="dropdown-item" href="https://tabler.io/docs" target="_blank" rel="noopener">
                                       Documentation
                                   </a>
                                   <a class="dropdown-item" href="./changelog.html">
@@ -85,7 +103,7 @@
                                       Sponsor project!
                                   </a>
                               </div>
-                          </li>
+                          </li> --}}
                       </ul>
 
                   </div>

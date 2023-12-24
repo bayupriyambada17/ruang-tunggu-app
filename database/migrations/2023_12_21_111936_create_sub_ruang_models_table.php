@@ -18,12 +18,12 @@ return new class extends Migration
             $table->foreignId('ruang_id')->constrained('ruang')->cascadeOnDelete();
             $table->string('pabx');
             $table->string('kap');
-            $table->string('kap-ujian');
-            $table->boolean('fas_ac')->default(0); // 0 = false;
-            $table->boolean('fas_komp')->default(0); // 0 = false;
-            $table->boolean('fas_lcd')->default(0); // 0 = false;
-            $table->boolean('fas_audio')->default(0); // 0 = false;
-            $table->boolean('fas_inet')->default(0); // 0 = false;
+            $table->string('kap_ujian');
+            $table->boolean('fas_ac');
+            $table->boolean('fas_komp');
+            $table->boolean('fas_lcd');
+            $table->boolean('fas_audio');
+            $table->boolean('fas_inet');
             $table->integer('ukuran_panjang')->nullable();
             $table->integer('ukuran_luas')->nullable();
             $table->integer('ukuran_tinggi')->nullable();

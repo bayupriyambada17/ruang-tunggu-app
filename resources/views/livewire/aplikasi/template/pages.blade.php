@@ -19,126 +19,112 @@
                         </div>
                         <div class="mt-5">
                             <button type="submit" class="btn btn-primary w-100">
-                                Cari Ruangan
+                                Cari
+                                Ruangan
                             </button>
                         </div>
                     </form>
                 </div>
                 <div class="col-md-9">
-                    <div class="row row-cards">
-                        <div class="space-y">
-                            @forelse ($semuaSubRuang as $subRuang)
-                                <div class="card">
-                                    <div class="row g-0">
-                                        <div class="col-auto">
-                                            <div class="card-body">
-                                                <div class="avatar avatar-md"
-                                                    style="background-image: url(https://dummyimage.com/150x150/000000/ffffff&text=cctv.{{ $subRuang->no_ruang }})">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card-body ps-0">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <h3 class="mb-0"><a
-                                                                href="#">{{ ucwords($subRuang->nama_sub_ruang) }}
-                                                                ({{ $subRuang->no_ruang }})
-                                                                - {{ $subRuang->ruang->nama_ruangan }}
-                                                            </a></h3>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div
-                                                            class="mt-3 list-inline list-inline-dots mb-0 text-muted d-sm-block d-none">
-                                                            <div class="list-inline-item">
-                                                                <span
-                                                                    style="color: {{ $subRuang->fas_komp ? 'green' : 'red' }}; font-size:12px;">{{ $subRuang->fas_komp ? '✔' : '❌' }}</span>
-                                                                AC
-                                                            </div>
-                                                            <div class="list-inline-item">
-                                                                <span
-                                                                    style="color: {{ $subRuang->fas_komp ? 'green' : 'red' }}; font-size:12px;">{{ $subRuang->fas_komp ? '✔' : '❌' }}</span>
-                                                                Komp
-                                                            </div>
-                                                            <div class="list-inline-item">
-                                                                <span
-                                                                    style="color: {{ $subRuang->fas_lcd ? 'green' : 'red' }}; font-size:12px;">{{ $subRuang->fas_lcd ? '✔' : '❌' }}</span>
-
-                                                                LCD
-                                                            </div>
-                                                            <div class="list-inline-item">
-                                                                <span
-                                                                    style="color: {{ $subRuang->fas_audio ? 'green' : 'red' }}; font-size:12px;">{{ $subRuang->fas_audio ? '✔' : '❌' }}</span>
-
-                                                                Audio
-                                                            </div>
-                                                            <div class="list-inline-item">
-                                                                <span
-                                                                    style="color: {{ $subRuang->fas_inet ? 'green' : 'red' }}; font-size:12px;">{{ $subRuang->fas_inet ? '✔' : '❌' }}</span>
-
-                                                                Inet
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="col-md">
-                                                        <div
-                                                            class="mt-3 list-inline list-inline-dots mb-0 text-muted d-sm-block d-none">
-                                                            <div class="list-inline-item">
-                                                                Panjang: {{ $subRuang->ukuran_panjang }}
-                                                            </div>
-                                                            <div class="list-inline-item">
-
-                                                            </div>
-                                                            <div class="list-inline-item">
-
-                                                                LCD
-                                                            </div>
-                                                            <div class="list-inline-item">
-
-                                                                Audio
-                                                            </div>
-                                                            <div class="list-inline-item">
-
-                                                                Inet
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    {{-- <div class="col-md-auto">
-                                                        <div class="mt-3 badges">
-                                                            <a href="#"
-                                                                class="badge badge-outline text-muted border fw-normal badge-pill">PHP</a>
-                                                            <a href="#"
-                                                                class="badge badge-outline text-muted border fw-normal badge-pill">Laravel</a>
-                                                            <a href="#"
-                                                                class="badge badge-outline text-muted border fw-normal badge-pill">CSS</a>
-                                                            <a href="#"
-                                                                class="badge badge-outline text-muted border fw-normal badge-pill">Vue</a>
-                                                        </div>
-                                                    </div> --}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="text-center">Data dengan
-                                            {{ $ruang_id ? 'Ruang ' . $ruang_id : 'Lokasi Ruang yang Dipilih' }}
-                                            tidak terdapat sub ruang</h3>
-                                    </div>
-                                </div>
-                            @endforelse
-
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-vcenter card-table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="19" class="text-center">Ruang:
+                                            {{ $ruang_id ? $selectedRuangName : 'Semua Lokasi Ruang' }} </th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" class="text-center">#</th>
+                                        <th rowspan="2" class="text-center">Live Cctv</th>
+                                        <th colspan="3" class="text-center">Lokasi Ruang</th>
+                                        <th rowspan="2" class="text-center">pabx</th>
+                                        <th rowspan="2" class="text-center">Kap</th>
+                                        <th rowspan="2" class="text-center">Kap Ujian</th>
+                                        <th colspan="5" class="text-center">Fasilitas Ruang</th>
+                                        <th colspan="4" class="text-center">Ukuran Ruang</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Sub Ruang</th>
+                                        <th class="text-center">Ruang</th>
+                                        <th class="text-center">Ac</th>
+                                        <th class="text-center">Aud</th>
+                                        <th class="text-center">Komp</th>
+                                        <th class="text-center">Lcd</th>
+                                        <th class="text-center">Inet</th>
+                                        <th class="text-center">P</th>
+                                        <th class="text-center">L</th>
+                                        <th class="text-center">T</th>
+                                        <th class="text-center">Luas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($semuaSubRuang as $key => $item)
+                                        <tr>
+                                            <td class="text-secondary text-center">
+                                                {{ $key + 1 }}
+                                            </td>
+                                            <td>
+                                                <Button class="btn btn-md btn-info">Live</Button>
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->no_ruang }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->nama_sub_ruang }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->ruang->nama_ruangan }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->pabx }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->kap }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->kap_ujian }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->fas_ac == 1 ? '✔' : '❌' }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->fas_audio == 1 ? '✔' : '❌' }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->fas_komp == 1 ? '✔' : '❌' }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->fas_lcd == 1 ? '✔' : '❌' }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->fas_inet == 1 ? '✔' : '❌' }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->ukuran_panjang }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->ukuran_lebar }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->ukuran_tinggi }}
+                                            </td>
+                                            <td class="text-secondary text-center">
+                                                {{ $item->ukuran_luas }}
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="14" class="text-center">Tidak ada group ruang: {{ $selectedRuangName }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
