@@ -6,6 +6,9 @@
                 <h3 class="card-title">Nama Ruangan</h3>
                 <div class="input-icon">
                     <input type="text" class="form-control" wire:model="nama_ruangan">
+                    @error('nama_ruangan')
+                                        <span class="error text-danger">{{ $message }}</span>
+                                    @enderror
                 </div>
             </div>
             <div class="card-footer">

@@ -10,10 +10,12 @@ class Create extends Component
     public $nama_ruangan;
     public function saveForm()
     {
-        $validation = $this->validate([
+        $this->validate([
             'nama_ruangan' => 'required|min:1'
         ]);
-        RuangModel::create($validation);
+        RuangModel::create([
+            'nama_ruangan' => $this->nama_ruangan
+        ]);
         session()->flash('message', 'Berhasil menambahkan data baru!.');
         return redirect(route('ruang.index'));
     }
