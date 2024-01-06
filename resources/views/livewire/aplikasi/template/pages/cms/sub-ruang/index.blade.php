@@ -138,7 +138,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" class="text-center">Tidak ada data ruang</td>
+                                <td colspan="18" class="text-center">Tidak ada data ruang</td>
                             </tr>
                         @endforelse
                     </tbody>

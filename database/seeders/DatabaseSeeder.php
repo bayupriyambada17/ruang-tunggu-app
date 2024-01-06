@@ -4,9 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\User;
 use App\Models\RuangModel;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RuangSeeder;
+use Database\Seeders\SubRuangSeeder;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -19,12 +21,23 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => Hash::make("password"),
+            'name' => 'operator',
+            'email' => 'operator@example.com',
+            'password' => Hash::make("password"), 'role' => "operator",
+            'verifikasi_date' => now(),
         ]);
-        // $this->call([
-        //     RuangSeeder::class,
-        // ]);
+
+        for ($i = 0; $i < 10; $i++) {
+            User::create([
+                'name' => 'peminjaman ' . ($i + 1),
+                'email' => 'peminjaman' . ($i + 1) . '@gmail.com',
+                'password' => Hash::make("password"), 'role' => "peminjam",
+                'verifikasi_date' => now(),
+            ]);
+        }
+        $this->call([
+            RuangSeeder::class,
+            SubRuangSeeder::class,
+        ]);
     }
 }

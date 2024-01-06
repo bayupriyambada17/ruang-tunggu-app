@@ -32,8 +32,8 @@ class Index extends Component
     public function render()
     {
         $subRuang = SubRuangModel::
-            // ->where("nama_ruangan", 'LIKE', '%' . $this->search . '%')
-            with('ruang:id,nama_ruangan')
+            where("nama_sub_ruang", 'LIKE', '%' . $this->search . '%')
+            ->with('ruang:id,nama_ruangan')
             ->orderBy('created_at', 'desc')->paginate($this->countData);
         return view('livewire.aplikasi.template.pages.cms.sub-ruang.index', [
             'subRuang' => $subRuang

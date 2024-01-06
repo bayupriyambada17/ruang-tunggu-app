@@ -15,7 +15,7 @@
                 <div class="row align-items-center">
                     <div class="col-auto">
                         <button type="button" class="btn btn-primary" wire:click.prevent="saveForm()">
-                            Save
+                            Simpan Ruang
                         </button>
                     </div>
                 </div>

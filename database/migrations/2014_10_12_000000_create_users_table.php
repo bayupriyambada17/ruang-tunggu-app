@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['operator', 'peminjam'])->default('peminjam');
+            $table->dateTime('verifikasi_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -45,6 +45,24 @@
                                   </span>
                               </a>
                           </li>
+                          <li class="nav-item {{ request()->routeIs('transaksi.index', 'transaksi.create') ? "active": "" }}">
+                              <a class="nav-link" href="{{ route('transaksi.index') }}">
+                                  <i data-lucide="folder-dot" width="15" height="15" style="margin-right: 2px;"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Transaksi
+                                  </span>
+                              </a>
+                          </li>
+                          <li class="nav-item {{ request()->routeIs('laporanRuang.index', 'laporanRuang.create') ? "active": "" }}">
+                              <a class="nav-link" href="{{ route('laporanRuang.index') }}">
+                                  <i data-lucide="book-check" width="15" height="15" style="margin-right: 2px;"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Laporan Ruang
+                                  </span>
+                              </a>
+                          </li>
                           <li class="nav-item">
                               <a class="nav-link" href="{{ route('dashboard') }}">
                                   <i data-lucide="cog" width="15" height="15" style="margin-right: 2px;"></i>
