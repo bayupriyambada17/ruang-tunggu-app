@@ -19,7 +19,7 @@ return new class extends Migration
             $table->time("start_time")->nullable();
             $table->time("end_time")->nullable();
             $table->string("deskripsi_ruang")->nullable();
-            $table->dateTime('tanggal_transaksi');
+            $table->date('tanggal_transaksi');
             $table->timestamps();
         });
     }

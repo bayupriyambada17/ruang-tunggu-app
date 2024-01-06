@@ -30,7 +30,7 @@
                     <div class="ms-auto text-muted">
                         Pencarian:
                         <div class="ms-2 d-inline-block">
-                            <input type="search" class="form-control form-control-sm" wire:model.live="search">
+                            <input type="date" class="form-control" wire:model.live="tanggalTransaksi">
                         </div>
                     </div>
                 </div>
@@ -45,6 +45,7 @@
                             <th>Pengguna</th>
                             <th>Sub Ruang</th>
                             <th>Tanggal Transaksi</th>
+                            <th>Deskripsi Ruang</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -71,11 +72,15 @@
                                     <span class="text-muted"></span>
                                     {{ $transaksi->tanggal_transaksi }}
                                 </td>
+                                <td>
+                                    <span class="text-muted"></span>
+                                    {{ $transaksi->deskripsi_ruang }}
+                                </td>
                                 <td class="justify-content-end">
                                     <div class="btn-list">
-                                        {{-- <a href="{{ route('ruang.edit', $ruang->nama_ruangan) }}" class="btn">
-                                            Edit
-                                        </a> --}}
+                                        <a href="{{ route('transaksi.edit', $transaksi->transaksi_kode) }}" class="btn">
+                                            Ubah
+                                        </a>
                                         {{-- @if ($konfirmasiHapus)
                                             <button wire:click.prevent="destroy({{ $ruang->id }})"
                                                 class="btn btn-outline-warning btn-md">Yakin Hapus?</button>
@@ -89,7 +94,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" class="text-center">Tidak ada data ruang</td>
+                                <td colspan="7" class="text-center">Tidak ada data transaksi</td>
                             </tr>
                         @endforelse
 

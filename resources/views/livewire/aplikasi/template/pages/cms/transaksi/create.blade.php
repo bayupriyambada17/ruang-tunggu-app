@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="mb-3">
                                         <label class="form-label required">Waktu Mulai</label>
                                         <input type="time" class="form-control" wire:model="start_time">
@@ -22,11 +22,20 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="mb-3">
                                         <label class="form-label required">Waktu Selesai</label>
                                         <input type="time" class="form-control" wire:model="end_time">
                                         @error('end_time')
+                                            <span class="error text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label required">Tanggal Transaksi</label>
+                                        <input type="date" class="form-control" wire:model="tanggal_transaksi">
+                                        @error('tanggal_transaksi')
                                             <span class="error text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>

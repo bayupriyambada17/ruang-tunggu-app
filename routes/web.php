@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get("/cms/transaksi-ruang", Index::class)->name('transaksi.index');
     Route::get("/cms/transaksi-ruang/tambah", Create::class)->name('transaksi.create');
-    Route::get("/cms/transaksi-ruang/{id}/ubah", Edit::class)->name('transaksi.edit');
+    Route::get("/cms/transaksi-ruang/{transaksiKodeId}/ubah", Edit::class)->name('transaksi.edit');
 
     Route::get("/cms/laporan-ruang", LaporanRuangIndex::class)->name('laporanRuang.index');
     Route::get("/cms/laporan-ruang/tambah", LaporanRuangCreate::class)->name('laporanRuang.create');

@@ -14,15 +14,18 @@ class Index extends Component
 
     #[Url]
     public $search = '';
+    public $tanggalTransaksi = '';
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
         $semuaTransaksi = TransaksiRuang::with('user', 'subRuang')
-            ->orderBy('tanggal_transaksi', 'desc')
-            ->paginate($this->countData);
+        ->orderBy('created_at', 'desc');
 
+        if ($this->tanggalTransaksi) {
+            $semuaTransaksi->whereDate("tanggal_transaksi", '=', $this->tanggalTransaksi);
+        }
         return view('livewire.aplikasi.template.pages.cms.transaksi.index', [
-            'semuaTransaksi' => $semuaTransaksi
+            'semuaTransaksi' => $semuaTransaksi->paginate($this->countData)
         ])->layout('components.layouts.cms');
     }
 }

@@ -15,15 +15,15 @@ class Login extends Component
         ]);
 
         if (auth()->attempt(array('email' => $this->email, 'password' => $this->password))) {
-            // if (auth()->user()->roles == 1) {
-            //     session()->flash('message', "You have been successfully login.");
-            //     return redirect(route('rektor.dashboard'));
-            // } else if (auth()->user()->roles == 2) {
-            //     session()->flash('message', "You have been successfully login.");
-            //     return redirect(route('dashboard'));
-            // }
-            // dd(auth()->user());
-            return redirect(route('dashboard'));
+            if (auth()->user()->role === "operator") {
+                // session()->flash('message', "You have been successfully login. (Operator)");
+                // return redirect(route('rektor.dashboard'));
+                dd("Kamu adalah operator");
+            } else if (auth()->user()->role === "peminjam") {
+                dd("Kamu adalah peminjam");
+                // session()->flash('message', "You have been successfully login (Peminjam)");
+                // return redirect(route('dashboard'));
+            }
         }
         // else {
         //     session()->flash('message', 'email and password are wrong.');
