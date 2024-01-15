@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Aplikasi\Template\Pages\Cms\Ruang;
 
+use App\Helpers\ValidatorMessage;
 use Livewire\Component;
 use App\Models\RuangModel;
 
@@ -12,7 +13,7 @@ class Create extends Component
     {
         $this->validate([
             'nama_ruangan' => 'required|min:1'
-        ]);
+        ], ValidatorMessage::validator());
         RuangModel::create([
             'nama_ruangan' => $this->nama_ruangan
         ]);

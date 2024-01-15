@@ -14,6 +14,16 @@ class SubRuangModel extends Model
 
     protected $casts = [
         'fas_ac' => 'integer',
+        'fas_komp' => 'integer',
+        'fas_lcd' => 'integer',
+        'fas_inet' => 'integer',
+        'fas_audio' => 'integer',
+        'kap' => 'integer',
+        'kap_ujian' => 'integer',
+        'ukuran_panjang' => 'integer',
+        'ukuran_lebar' => 'integer',
+        'ukuran_tinggi' => 'integer',
+        'ukuran_luas' => 'integer',
     ];
 
     public function ruang()

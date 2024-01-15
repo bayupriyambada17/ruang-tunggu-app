@@ -17,12 +17,13 @@ class Login extends Component
         if (auth()->attempt(array('email' => $this->email, 'password' => $this->password))) {
             if (auth()->user()->role === "operator") {
                 // session()->flash('message', "You have been successfully login. (Operator)");
+                return redirect(route('dashboard'));
                 // return redirect(route('rektor.dashboard'));
-                dd("Kamu adalah operator");
+                // dd("Kamu adalah operator");
             } else if (auth()->user()->role === "peminjam") {
-                dd("Kamu adalah peminjam");
+                // dd("Kamu adalah peminjam");
                 // session()->flash('message', "You have been successfully login (Peminjam)");
-                // return redirect(route('dashboard'));
+                return redirect(route('dashboard'));
             }
         }
         // else {

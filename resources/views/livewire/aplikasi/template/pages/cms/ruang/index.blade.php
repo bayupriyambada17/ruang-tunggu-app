@@ -1,8 +1,9 @@
 @section('ruangApp', 'Ruang')
 
 <div>
-    <a href="{{ route('ruang.create') }}" type="button" class="btn btn-md btn-primary mb-2">Tambah
-        Data</a>
+    <div class="mb-2">
+        <x-a-link route="{{ route('ruang.create') }}" bgColor="primary" title="Tambah"></x-a-link>
+    </div>
     @if (session()->has('message'))
         <div class="alert alert-success my-2">
             {{ session('message') }}
@@ -58,9 +59,8 @@
                                 </td>
                                 <td class="justify-content-end">
                                     <div class="btn-list">
-                                        <a href="{{ route('ruang.edit', $ruang->nama_ruangan) }}" class="btn">
-                                            Edit
-                                        </a>
+                                         <x-a-link route="{{ route('ruang.edit', $ruang->nama_ruangan) }}"
+                                            bgColor="outline-warning" title="Ubah"></x-a-link>
                                         @if ($konfirmasiHapus)
                                             <button wire:click.prevent="destroy({{ $ruang->id }})"
                                                 class="btn btn-outline-warning btn-md">Yakin Hapus?</button>

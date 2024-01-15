@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Aplikasi\Template\Pages\Cms\Ruang;
 
+use App\Helpers\ValidatorMessage;
 use App\Models\RuangModel;
 use Livewire\Component;
 
@@ -19,7 +20,7 @@ class Edit extends Component
     {
         $this->validate([
             'nama_ruangan' => 'required|min:1'
-        ]);
+        ], ValidatorMessage::validator());
 
         RuangModel::where('id', $this->ruangId)->update(['nama_ruangan' => $this->nama_ruangan]);
         session()->flash('message', 'Berhasil mengubah data!.');

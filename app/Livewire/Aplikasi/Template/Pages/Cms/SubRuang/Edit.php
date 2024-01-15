@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Aplikasi\Template\Pages\Cms\SubRuang;
 
-use App\Models\RuangModel;
-use App\Models\SubRuangModel;
 use Livewire\Component;
+use App\Models\RuangModel;
+use Illuminate\Support\Str;
+use App\Models\SubRuangModel;
+use App\Helpers\ValidatorMessage;
 
 class Edit extends Component
 {
@@ -54,7 +56,7 @@ class Edit extends Component
             'ukuran_tinggi' => 'required',
             'ukuran_lebar' => 'required',
             'link' => 'required',
-        ]);
+        ], ValidatorMessage::validator());
 
         SubRuangModel::where('id', $this->subRuangId)->update([
             'no_ruang' => $this->no_ruang,

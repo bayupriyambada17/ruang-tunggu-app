@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Aplikasi\Template\Pages\Cms\SubRuang;
 
+use App\Helpers\ValidatorMessage;
 use App\Models\RuangModel;
 use App\Models\SubRuangModel;
 use Livewire\Component;
@@ -32,7 +33,7 @@ class Create extends Component
             'ukuran_tinggi' => 'required',
             'ukuran_lebar' => 'required',
             'link' => 'required',
-        ]);
+        ], ValidatorMessage::validator());
 
         SubRuangModel::create([
             'no_ruang' => $this->no_ruang,

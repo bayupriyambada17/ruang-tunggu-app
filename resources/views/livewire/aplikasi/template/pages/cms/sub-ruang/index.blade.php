@@ -1,8 +1,9 @@
 @section('ruangApp', 'Sub Ruang')
 
 <div>
-    <a href="{{ route('subruang.create') }}" type="button" class="btn btn-md btn-primary mb-2">Tambah
-        Data</a>
+    <div class="mb-2">
+        <x-a-link route="{{ route('subruang.create') }}" bgColor="primary" title="Tambah"></x-a-link>
+    </div>
     @if (session()->has('message'))
         <div class="alert alert-success my-2">
             {{ session('message') }}
@@ -90,19 +91,19 @@
                                     <span class="text-muted">{{ $ruang->kap_ujian }}</span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="text-muted">{{ $ruang->fas_ac ? '✔': '❌' }}</span>
+                                    <span class="text-muted">{{ $ruang->fas_ac ? '✔' : '❌' }}</span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="text-muted">{{ $ruang->fas_komp ? '✔': '❌' }}</span>
+                                    <span class="text-muted">{{ $ruang->fas_komp ? '✔' : '❌' }}</span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="text-muted">{{ $ruang->fas_lcd ? '✔': '❌' }}</span>
+                                    <span class="text-muted">{{ $ruang->fas_lcd ? '✔' : '❌' }}</span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="text-muted">{{ $ruang->fas_audio ? '✔': '❌' }}</span>
+                                    <span class="text-muted">{{ $ruang->fas_audio ? '✔' : '❌' }}</span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="text-muted">{{ $ruang->fas_inet ? '✔': '❌' }}</span>
+                                    <span class="text-muted">{{ $ruang->fas_inet ? '✔' : '❌' }}</span>
                                 </td>
                                 <td class="text-center">
                                     <span class="text-muted">{{ $ruang->ukuran_panjang }}</span>
@@ -117,14 +118,12 @@
                                     <span class="text-muted">{{ $ruang->ukuran_luas }}</span>
                                 </td>
                                 <td class="text-center">
-                                    <button
-                                        class="btn btn-outline-primary btn-md">Cek</button>
+                                    <button class="btn btn-outline-primary btn-md">Cek</button>
                                 </td>
                                 <td class="justify-content-end">
                                     <div class="btn-list">
-                                        <a href="{{ route('subruang.edit', $ruang->nama_sub_ruang) }}" class="btn btn-outline-warning btn-md">
-                                            Ubah
-                                        </a>
+                                        <x-a-link route="{{ route('subruang.edit', $ruang->nama_sub_ruang) }}"
+                                            bgColor="outline-warning" title="Ubah"></x-a-link>
                                         @if ($konfirmasiHapus)
                                             <button wire:click.prevent="destroy({{ $ruang->id }})"
                                                 class="btn btn-outline-warning btn-md">Yakin Hapus?</button>

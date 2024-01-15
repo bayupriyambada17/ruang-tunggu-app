@@ -1,8 +1,9 @@
 @section('ruangApp', 'Transaksi')
 
 <div>
-    <a href="{{ route('transaksi.create') }}" type="button" class="btn btn-md btn-primary mb-2">Tambah
-        Data</a>
+    <div class="mb-2">
+        <x-a-link route="{{ route('transaksi.create') }}" bgColor="primary" title="Tambah"></x-a-link>
+    </div>
     @if (session()->has('message'))
         <div class="alert alert-success my-2">
             {{ session('message') }}
@@ -78,9 +79,8 @@
                                 </td>
                                 <td class="justify-content-end">
                                     <div class="btn-list">
-                                        <a href="{{ route('transaksi.edit', $transaksi->transaksi_kode) }}" class="btn">
-                                            Ubah
-                                        </a>
+                                        <x-a-link route="{{ route('transaksi.edit', $transaksi->transaksi_kode) }}"
+                                            bgColor="outline-warning" title="Ubah"></x-a-link>
                                         {{-- @if ($konfirmasiHapus)
                                             <button wire:click.prevent="destroy({{ $ruang->id }})"
                                                 class="btn btn-outline-warning btn-md">Yakin Hapus?</button>

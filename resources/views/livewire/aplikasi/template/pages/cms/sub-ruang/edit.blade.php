@@ -1,6 +1,6 @@
-@section('ruangApp', 'Ubah Sub Ruang')
+@section('ruangApp', $nama_sub_ruang)
 <div>
-    <h3>Tambah Sub Ruang</h3>
+    <h3>Ubah: {{ $nama_sub_ruang }}</h3>
     <div class="row row-cards">
         <div class="col-md-8">
             <div class="row row-cards">
@@ -214,6 +214,6 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-primary btn-md mt-2" wire:click.prevent="updateForm()">Simpan Sub
-        Ruang</button>
+    <button type="button" class="btn btn-primary btn-md" wire:click.prevent="updateForm()">Pembaharui Data</button>
+    <x-a-link route="{{ route('subruang.index') }}" title="Kembali" bgColor="warning"></x-a-link>
 </div>

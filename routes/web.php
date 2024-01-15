@@ -16,10 +16,10 @@ use App\Livewire\Aplikasi\Template\Pages\Cms\Transaksi\Index;
 use App\Livewire\Aplikasi\Template\Pages\Cms\LaporanRuang\Index as LaporanRuangIndex;
 use App\Livewire\Aplikasi\Template\Pages\Cms\LaporanRuang\Create as LaporanRuangCreate;
 use App\Livewire\Aplikasi\Template\Pages\Cms\LaporanRuang\Edit as LaporanRuangEdit;
+use App\Livewire\Aplikasi\Template\Pages\Cms\Pengaturan\Index as PengaturanIndex;
 
 
 Route::get("/", Pages::class)->name('home');
-
 Route::middleware(['guest'])->group(function () {
     Route::get("/auth/masuk", Login::class)->name('login');
 });
@@ -41,4 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/cms/laporan-ruang", LaporanRuangIndex::class)->name('laporanRuang.index');
     Route::get("/cms/laporan-ruang/tambah", LaporanRuangCreate::class)->name('laporanRuang.create');
     Route::get("/cms/laporan-ruang/{laporanRuangId}/ubah", LaporanRuangEdit::class)->name('laporanRuang.edit');
+
+
+    Route::get("/cms/pengaturan", PengaturanIndex::class)->name('settings.index');
 });
