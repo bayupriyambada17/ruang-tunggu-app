@@ -18,23 +18,18 @@
               <div class="navbar">
                   <div class="container-xl">
                       <ul class="navbar-nav">
-                          <li class="nav-item {{ request()->routeIs('home') ? "active" : "" }}">
-                              <a class="nav-link" href="{{ route('home') }}">
-                                  <span class="nav-link-title">
-                                      Beranda
-                                  </span>
-                              </a>
+                          <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
+                              <x-nav-link route="home" name="Beranda" icon="home"></x-nav-link>
                           </li>
                           <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
+                              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                                   data-bs-auto-close="outside" role="button" aria-expanded="false">
                                   <span class="nav-link-title">
                                       Agenda
                                   </span>
                               </a>
                               <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#" target="_blank"
-                                      rel="noopener">
+                                  <a class="dropdown-item" href="{{ route('pages.harian') }}">
                                       Harian
                                   </a>
                                   <a class="dropdown-item" href="#">
@@ -45,6 +40,7 @@
                                   </a>
                               </div>
                           </li>
+                          <x-nav-link route="member.login" name="Masuk Simenru" icon="log-in"></x-nav-link>
                       </ul>
 
                   </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Aplikasi\Template\Pages\Auth;
+namespace App\Livewire\Aplikasi\Template\Auth\Member;
 
 use Livewire\Component;
 
@@ -15,13 +15,13 @@ class Login extends Component
         ]);
 
         if (auth()->attempt(array('email' => $this->email, 'password' => $this->password))) {
-            if (auth()->user()->role === "operator") {
-                return redirect(route('dashboard'));
+            if (auth()->user()->role === "peminjam") {
+                return redirect(route('member.dashboard.index'));
             }
         }
     }
     public function render()
     {
-        return view('livewire.aplikasi.template.pages.auth.login')->layout('components.layouts.auth');
+        return view('livewire.aplikasi.template.auth.member.login')->layout('components.layouts.auth');
     }
 }

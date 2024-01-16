@@ -10,11 +10,11 @@
                         </a>
                 </div>
                 <h2 class="h3 text-center mb-3">
-                    Masuk dengan akun anda, dengan benar!
+                    Masuk dengan akun anda!
                 </h2>
                 <form wire:submit.prevent="login" autocomplete="off" novalidate>
                     <div class="mb-3">
-                        <label class="form-label">Alamat Email</label>
+                        <label class="form-label">Email</label>
                         <input type="email" wire:model="email" class="form-control" placeholder="your@email.com" autocomplete="off">
                     </div>
                     <div class="mb-2">
@@ -29,14 +29,12 @@
                         <button type="submit" class="btn btn-primary w-100">Masuk Aplikasi</button>
                     </div>
                 </form>
-
             </div>
         </div>
         <div class="col-12 col-lg-6 col-xl-8 d-none d-lg-block">
             <!-- Photo -->
             <div class="bg-cover h-100 min-vh-100"
                 style="background-color:black">
-                {{-- style="background-image: url(./static/photos/finances-us-dollars-and-bitcoins-currency-money-2.jpg)"> --}}
             </div>
         </div>
     </div>
