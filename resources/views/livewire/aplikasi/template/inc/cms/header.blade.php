@@ -48,6 +48,14 @@
                                   <x-nav-link icon="layout-dashboard" route="member.dashboard.index"
                                       name="Dashboard"></x-nav-link>
                               </li>
+                              <li class="nav-item {{ request()->routeIs('member.pinjam.index') ? 'active' : '' }}">
+                                  <x-nav-link icon="layout-dashboard" route="member.pinjam.index"
+                                      name="Pinjam Ruangan"></x-nav-link>
+                              </li>
+                              <li class="nav-item {{ request()->routeIs('member.lapor.index') ? 'active' : '' }}">
+                                  <x-nav-link icon="layout-dashboard" route="member.lapor.index"
+                                      name="Laporkan Ruangan"></x-nav-link>
+                              </li>
                           @endif
                           <li class="nav-item">
                               @livewire('aplikasi.template.pages.auth.logout')

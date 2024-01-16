@@ -28,7 +28,6 @@
         @include('livewire.aplikasi.template.inc.header')
         <div class="page-wrapper">
             {{ $slot }}
-
         </div>
         @include('livewire.aplikasi.template.inc.footer')
     </div>

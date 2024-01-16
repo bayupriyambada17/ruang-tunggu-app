@@ -1,7 +1,9 @@
 <?php
 
 use App\Livewire\Aplikasi\Template\Auth\Member\Dashboard\Index as DashboardIndex;
+use App\Livewire\Aplikasi\Template\Auth\Member\LaporkanRuang\Index as LaporkanRuangIndex;
 use App\Livewire\Aplikasi\Template\Auth\Member\Login as MemberLogin;
+use App\Livewire\Aplikasi\Template\Auth\Member\PinjamRuang\Index as PinjamRuangIndex;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Aplikasi\Template\Pages;
 use App\Livewire\Aplikasi\Template\Pages\Auth\Login;
@@ -53,4 +55,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 Route::middleware(['auth', 'isMember'])->group(function () {
     Route::get("/member/dashboard", DashboardIndex::class)->name('member.dashboard.index');
+    Route::get("/member/pinjam-ruang", PinjamRuangIndex::class)->name('member.pinjam.index');
+    Route::get("/member/lapor-ruang", LaporkanRuangIndex::class)->name('member.lapor.index');
 });
