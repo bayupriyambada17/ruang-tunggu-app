@@ -40,6 +40,7 @@
                     <thead>
                         <tr>
                             <th class="w-1">No.</th>
+                            <th>Pelapor Ruang</th>
                             <th>Sub Ruang</th>
                             <th>Catatan Ruang</th>
                             <th>Tanggal Transaksi</th>
@@ -50,6 +51,9 @@
                         @forelse ($semuaLaporanRuang as $key => $laporan)
                             <tr>
                                 <td><span class="text-muted">{{ $key + 1 }}</span></td>
+                                <td>
+                                    <span class="text-muted">{{ $laporan->user->name }}</span>
+                                </td>
                                 <td>
                                     <span class="text-muted">{{ $laporan->subRuang->nama_sub_ruang }}</span>
                                 </td>

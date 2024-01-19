@@ -28,7 +28,6 @@ Route::middleware(['guest'])->group(function () {
     Route::get("/agenda/harian", Harian::class)->name('pages.harian');
     Route::get("/auth/masuk", Login::class)->name('login');
     Route::get('/member/login', MemberLogin::class)->name('member.login');
-
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

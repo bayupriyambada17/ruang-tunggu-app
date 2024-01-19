@@ -18,6 +18,7 @@ class Create extends Component
 
         LaporanRuangModel::create([
             'sub_ruang_id' => $this->sub_ruang_id,
+            'user_id' => auth()->user()->id,
             'catatan_laporan' => $this->catatan_laporan,
             'tanggal_laporan' => now()
         ]);

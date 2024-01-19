@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId("sub_ruang_id")->constrained("sub_ruang")->cascadeOnDelete();
             $table->string('catatan_laporan');
+            $table->string('type')->nullable();
+            $table->foreignId("user_id")->nullable()->constrained("users")->cascadeOnDelete();
             $table->dateTime('tanggal_laporan');
             $table->timestamps();
         });

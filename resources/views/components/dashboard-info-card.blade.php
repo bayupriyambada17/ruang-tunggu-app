@@ -1,5 +1,6 @@
 @props(['icon', 'total', 'nama', 'color'])
 
+
 <div class="col-sm-6 col-lg-3">
     <div class="card card-sm">
         <div class="card-body">

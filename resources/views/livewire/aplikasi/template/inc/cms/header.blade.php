@@ -13,6 +13,7 @@
               </h1>
           </div>
       </header>
+
       <header class="navbar-expand-md">
           <div class="collapse navbar-collapse" id="navbar-menu">
               <div class="navbar">
@@ -41,7 +42,6 @@
                               </li>
                               <li class="nav-item {{ request()->routeIs('settings.index') ? 'active' : '' }}">
                                   <x-nav-link icon="cog" route="settings.index" name="Pengaturan"></x-nav-link>
-
                               </li>
                           @elseif(auth()->user()->role == 'peminjam')
                               <li class="nav-item {{ request()->routeIs('member.dashboard.index') ? 'active' : '' }}">

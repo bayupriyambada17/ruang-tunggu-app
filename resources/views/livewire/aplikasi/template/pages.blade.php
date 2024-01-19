@@ -1,3 +1,5 @@
+@section('ruangApp', 'SIMENRU')
+
 <div>
     <!-- Page body -->
     <div class="page-body">

@@ -11,6 +11,12 @@ class Edit extends Component
     public $laporanRuangId, $sub_ruang_id, $catatan_laporan;
     public function mount($laporanRuangId)
     {
+        // jika bukan user_id maka tidak dapat edit
+        if ($laporanRuangId != auth()->user()->id) {
+            return redirect(route('laporanRuang.index'));
+            session()->flash('message', 'Anda tidak memiliki akses untuk mengedit laporan ruang kerusakan');
+        }
+
         $laporanId = LaporanRuangModel::find($laporanRuangId);
         $this->laporanRuangId = $laporanId->id;
         $this->sub_ruang_id = $laporanId->sub_ruang_id;
@@ -28,6 +34,7 @@ class Edit extends Component
 
         $laporanId->update([
             'sub_ruang_id' => $this->sub_ruang_id,
+            'user_id' => auth()->user()->id,
             'catatan_laporan' => $this->catatan_laporan,
         ]);
         session()->flash('message', 'Berhasil mengubah laporan ruang kerusakan');
