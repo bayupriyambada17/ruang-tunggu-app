@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
                 'verifikasi_date' => now(),
             ]);
         }
-        $this->call([
-            RuangSeeder::class,
-            SubRuangSeeder::class,
-        ]);
+        // $this->call([
+        //     RuangSeeder::class,
+        //     SubRuangSeeder::class,
+        // ]);
     }
 }

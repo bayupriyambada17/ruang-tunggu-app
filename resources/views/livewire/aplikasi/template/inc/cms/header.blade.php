@@ -40,6 +40,11 @@
                                   <x-nav-link icon="book-check" route="laporanRuang.index"
                                       name="Laporan Ruang"></x-nav-link>
                               </li>
+                              <li
+                                  class="nav-item {{ request()->routeIs('user.index', 'user.create') ? 'active' : '' }}">
+                                  <x-nav-link icon="user" route="user.index"
+                                      name="User"></x-nav-link>
+                              </li>
                               <li class="nav-item {{ request()->routeIs('settings.index') ? 'active' : '' }}">
                                   <x-nav-link icon="cog" route="settings.index" name="Pengaturan"></x-nav-link>
                               </li>

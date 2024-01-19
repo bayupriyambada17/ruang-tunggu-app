@@ -20,15 +20,14 @@
                     <ul class="navbar-nav">
                         <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">
-                                <i data-lucide="home" width="15" height="15"
-                                    style="margin-right: 2px;"></i>
+                                <i data-lucide="home" width="15" height="15" style="margin-right: 2px;"></i>
                                 </span>
                                 <span class="nav-link-title">
                                     Beranda
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('pages.harian') ? "active": "" }} dropdown">
+                        <li class="nav-item {{ request()->routeIs('pages.harian') ? 'active' : '' }} dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                 role="button" aria-expanded="false">
                                 <span class="nav-link-title">
@@ -36,7 +35,8 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item {{ request()->routeIs('pages.harian') ? "active": "" }}" href="{{ route('pages.harian') }}">
+                                <a class="dropdown-item {{ request()->routeIs('pages.harian') ? 'active' : '' }}"
+                                    href="{{ route('pages.harian') }}">
                                     Harian
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -47,7 +47,15 @@
                                 </a>
                             </div>
                         </li>
-                        <x-nav-link route="member.login" name="Masuk Simenru" icon="log-in"></x-nav-link>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('member.login') }}">
+                                <i data-lucide="log-in" width="15" height="15" style="margin-right: 2px;"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Masuk Simenru
+                                </span>
+                            </a>
+                        </li>
                     </ul>
 
                 </div>
